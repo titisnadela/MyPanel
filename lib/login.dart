@@ -145,7 +145,7 @@ class MainPage extends StatelessWidget {
                                   },
                                   child: Center(
                                     child: Text(
-                                      "SIGN IN",
+                                      "LOGIN",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w700),
