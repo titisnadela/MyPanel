@@ -35,10 +35,7 @@ class MainPage extends StatelessWidget {
               child: Center(
                 child: Text(
                   "MyPanel",
-                  style: TextStyle(
-                      fontFamily: "CrashlandingBB",
-                      fontSize: 30,
-                      color: Color(0xFF303030)),
+                  style: TextStyle(fontSize: 30, color: Color(0xFF303030)),
                 ),
               ),
               width: getBigDiameter(context),
@@ -94,7 +91,7 @@ class MainPage extends StatelessWidget {
                               focusedBorder: UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Color(0xFF33691E))),
-                              labelText: "Email: ",
+                              labelText: "Email ",
                               labelStyle: TextStyle(color: Color(0xFF33691E))),
                         ),
                         TextField(
@@ -145,7 +142,7 @@ class MainPage extends StatelessWidget {
                                   },
                                   child: Center(
                                     child: Text(
-                                      "LOGIN",
+                                      "SIGN IN",
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w700),
