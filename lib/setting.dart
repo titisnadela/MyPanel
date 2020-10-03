@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+//import 'package:tes/home.dart';
+import 'package:tes/login.dart';
 
 class Setting extends StatefulWidget {
   @override
@@ -100,6 +102,22 @@ class _SettingState extends State<Setting> {
               ),
             ],
           )),
+          Align(
+            child: Column(
+              children: <Widget>[
+                RaisedButton(
+                  child: Text('Logout'),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return MainPage();
+                    }));
+                  },
+                )
+              ],
+            ),
+          ),
+
           // Column(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //   crossAxisAlignment: CrossAxisAlignment.stretch,

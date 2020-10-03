@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tes/code.dart';
 import 'package:tes/code3.dart';
-import 'package:tes/manual.dart';
+
 import 'package:tes/setting.dart';
 
 import 'code2.dart';
@@ -28,28 +28,28 @@ class _HomeState extends State<Home> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(shape: BoxShape.rectangle),
-                child: Image(
-                  image: AssetImage("assets/manual1.png"),
-                  width: 64,
-                  height: 100,
-                ),
-              ),
-              RaisedButton(
-                color: Colors.lightGreen[700],
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return Manual();
-                  }));
-                },
-                child: Text('Manual'),
-                elevation: 5,
-              ),
-            ],
-          ),
+          // Column(
+          //   children: <Widget>[
+          //     Container(
+          //       decoration: BoxDecoration(shape: BoxShape.rectangle),
+          //       child: Image(
+          //         image: AssetImage("assets/manual1.png"),
+          //         width: 64,
+          //         height: 100,
+          //       ),
+          //     ),
+          //     RaisedButton(
+          //       color: Colors.lightGreen[700],
+          //       onPressed: () {
+          //         Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //           return Manual();
+          //         }));
+          //       },
+          //       child: Text('Manual'),
+          //       elevation: 5,
+          //     ),
+          //   ],
+          // ),
           Column(children: <Widget>[
             Container(
               decoration: BoxDecoration(shape: BoxShape.rectangle),
@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
               child: Text("Setting"),
               elevation: 5,
             ),
-          ])
+          ]),
         ],
       ),
     );
