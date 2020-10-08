@@ -219,9 +219,9 @@ class _MQTTViewState extends State<MQTTView> {
   void _configureAndConnect() {
     // ignore: flutter_style_todos
     String osPrefix = 'Flutter_iOS';
-    if (Platform.isAndroid) {
-      osPrefix = 'Flutter_Android';
-    }
+    // if (Platform.isAndroid) {
+    //   osPrefix = 'Flutter_Android';
+    // }
     manager = MQTTManager(
         // host: _hostTextController.text,
         // topic: _topicTextController.text,

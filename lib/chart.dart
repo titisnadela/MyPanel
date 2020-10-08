@@ -32,7 +32,7 @@ class Chart extends StatelessWidget {
           child: Container(
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(18),
+                  Radius.elliptical(0, 0),
                 ),
                 color: Color(0xff232d37)),
             child: Padding(
@@ -48,7 +48,7 @@ class Chart extends StatelessWidget {
           child: Container(
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(18),
+                  Radius.elliptical(0, 0),
                 ),
                 color: Color(0xff232d37)),
             child: Padding(
@@ -68,50 +68,43 @@ class Chart extends StatelessWidget {
     return LineChartData(
       //clipToBorder: true,
       gridData: FlGridData(
-        show: true, //menentukan untuk menampilkan atau menyembunyikan grid data
-        drawVerticalLine:
-            true, //menampilkan atau menyembunyikan garis kisi vertikal
+        show: true,
+        drawVerticalLine: true,
         getDrawingHorizontalLine: (value) {
-          //mendapatkan gaya garis pada kisi dengan memberikan nilai sumbu
           return FlLine(
             color: const Color(0xff37434d),
-            strokeWidth: 0.5, //menentukan lebar guratan garis
+            strokeWidth: 0.5,
           );
         },
         getDrawingVerticalLine: (value) {
-          // fungsi untuk mendapatkan gaya garis kisi dengan memberikan nilai sumbu
           return FlLine(
             color: const Color(0xff37434d),
-            strokeWidth: 0.5, //menentukan lebar guratan garis
+            strokeWidth: 0.5,
           );
         },
       ),
       titlesData: FlTitlesData(
-        show: true, //menampilkan atau menyembunyikan judul disekitar grafik
+        show: true,
         bottomTitles: SideTitles(
-          //menyimpan data untuk menggambar judul bawah
-          interval: 1,
+          interval: 5,
           rotateAngle: 60,
           showTitles: true,
-          reservedSize: 50, //ruang untuk menampilkan judul
+          reservedSize: 50,
           textStyle: const TextStyle(
               color: Color(0xff68737d),
               fontWeight: FontWeight.bold,
               fontSize: 5),
           getTitles: (value) {
-            print('topic/temp');
+            print('test');
             if (value > 0) {
               return titles[value.toInt() - 1].toString();
             } else {
               return "";
             }
-            //untuk mengambil judul dengan nilai yang diberikan pada sumbu terkait
-            //return value.toString();
           },
-          margin: 12, // antara masing2 judul
+          margin: 0,
         ),
         leftTitles: SideTitles(
-          //sideTitle yang menyimpan data untuk menggambar judul kiri
           showTitles: true,
           textStyle: const TextStyle(
             color: Color(0xff67727d),
@@ -121,37 +114,31 @@ class Chart extends StatelessWidget {
           getTitles: (value) {
             return value.toString();
           },
-          reservedSize: 28,
-          margin: 12,
+          reservedSize: 30,
+          margin: 10,
         ),
       ),
       borderData: FlBorderData(
-          show: true, //menampilkan atau menyembunyikan border
-          border: Border.all(
-              color: const Color(0xff37434d),
-              width:
-                  1)), //detail pembatas yang menentukan batas mana yg harus digambar dengan warna apa
+          show: true,
+          border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: maxData,
       minY: 0,
-      maxY: 100,
+      maxY: 70,
       lineBarsData: [
         LineChartBarData(
           spots: data,
-          isCurved: true, //lineChart menggambar garis dengan tepi melengkung
-          colors:
-              gradientColors, //menentukan garis gambar dan gradien antara warna yang disediakan untuk menggambar garis
-          barWidth: 2, // menentukan ketebalan garis gambar
-          isStrokeCapRound: true, //menentukan gaya batas garis
+          isCurved: true,
+          colors: gradientColors,
+          barWidth: 2,
+          isStrokeCapRound: true,
           dotData: FlDotData(
-            //bertanggung jawab untuk menunjukkan bintik2 pada garis sebagai titik lingkarab
             show: false,
           ),
           belowBarData: BarAreaData(
-            //mengisi ruang, meniup garis dan menggunakan warna atau gradien
             show: true,
             colors:
-                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
+                gradientColors.map((color) => color.withOpacity(0.2)).toList(),
           ),
         ),
       ],
@@ -179,35 +166,33 @@ class Chart extends StatelessWidget {
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
-          interval: 1,
+          interval: 5,
           rotateAngle: 60,
           showTitles: true,
-          reservedSize: 50,
+          reservedSize: 30,
           textStyle: const TextStyle(
-              color: Color(0xff68737d),
-              fontWeight: FontWeight.bold,
-              fontSize: 7),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 5),
           getTitles: (value) {
-            print('topic/hum');
+            print('test');
             if (value > 0) {
               return titles1[value.toInt() - 1].toString();
             } else {
               return "";
             }
           },
-          margin: 4,
+          margin: 01,
         ),
         leftTitles: SideTitles(
           showTitles: true,
           textStyle: const TextStyle(
-            color: Color(0xff67727d),
+            color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 7,
           ),
           getTitles: (value) {
             return value.toString();
           },
-          reservedSize: 28,
+          reservedSize: 30,
           margin: 12,
         ),
       ),
@@ -217,7 +202,7 @@ class Chart extends StatelessWidget {
       minX: 0,
       maxX: maxData1,
       minY: 0,
-      maxY: 100,
+      maxY: 70,
       lineBarsData: [
         LineChartBarData(
           spots: data1,
@@ -231,7 +216,7 @@ class Chart extends StatelessWidget {
           belowBarData: BarAreaData(
             show: true,
             colors:
-                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
+                gradientColors.map((color) => color.withOpacity(0.2)).toList(),
           ),
         ),
       ],
