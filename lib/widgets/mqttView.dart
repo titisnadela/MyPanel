@@ -18,7 +18,7 @@ class _MQTTViewState extends State<MQTTView> {
   final TextEditingController _topicTextController = TextEditingController();
   final TextEditingController _topic1TextController = TextEditingController();
   MQTTAppState currentAppState;
-  MQTTAppState currentAppState1;
+  //MQTTAppState currentAppState1;
   MQTTManager manager;
 
   @override
@@ -48,8 +48,11 @@ class _MQTTViewState extends State<MQTTView> {
     if (currentAppState.getAppConnectionState ==
         MQTTAppConnectionState.disconnected) _configureAndConnect();
 
-    final Scaffold scaffold =
-        Scaffold(appBar: _buildAppBar(context), body: _buildColumn());
+    final Scaffold scaffold = Scaffold(
+      appBar: _buildAppBar(context),
+      body: _buildColumn(),
+      backgroundColor: Colors.green[200],
+    );
     return scaffold;
   }
 
@@ -61,7 +64,7 @@ class _MQTTViewState extends State<MQTTView> {
   }
 
   Widget _buildColumn() {
-    return Column(
+    return ListView(
       children: <Widget>[
         // buildConnectionStateText(
         //     prepareStateMessageFrom(currentAppState.getAppConnectionState)),
@@ -69,6 +72,8 @@ class _MQTTViewState extends State<MQTTView> {
         Chart(
           data: currentAppState.getData,
           data1: currentAppState.getData1,
+          nomor: currentAppState.getNomor,
+          nomor1: currentAppState.getNomor1,
           titles: currentAppState.getTitles,
           titles1: currentAppState.getTitles1,
           maxData: currentAppState.maxData,
@@ -99,7 +104,7 @@ class _MQTTViewState extends State<MQTTView> {
           const SizedBox(height: 10),
           _buildPublishMessageRow(),
           const SizedBox(height: 10),
-          _buildConnecteButtonFrom(currentAppState.getAppConnectionState)
+          _buildConnectedButtonFrom(currentAppState.getAppConnectionState)
         ],
       ),
     );
@@ -165,7 +170,7 @@ class _MQTTViewState extends State<MQTTView> {
     );
   }
 
-  Widget _buildConnecteButtonFrom(MQTTAppConnectionState state) {
+  Widget _buildConnectedButtonFrom(MQTTAppConnectionState state) {
     return Row(
       children: <Widget>[
         Expanded(
@@ -214,6 +219,17 @@ class _MQTTViewState extends State<MQTTView> {
       case MQTTAppConnectionState.disconnected:
         return 'Disconnected';
     }
+  }
+
+  Future refreshData() async {
+    // ignore: unnecessary_statements
+    _hostTextController;
+    // ignore: unnecessary_statements
+    _topicTextController;
+    // ignore: unnecessary_statements
+    _topic1TextController;
+    await Future.delayed(Duration(seconds: 2));
+    setState(() {});
   }
 
   void _configureAndConnect() {

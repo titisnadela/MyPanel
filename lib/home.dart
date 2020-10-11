@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tes/code.dart';
 import 'package:tes/code3.dart';
-
 import 'package:tes/setting.dart';
-
 import 'code2.dart';
 
 class Home extends StatefulWidget {

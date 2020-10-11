@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
       MediaQuery.of(context).size.width * 7 / 8;
 
   TextEditingController email = new TextEditingController();
-  TextEditingController pass = new TextEditingController();
+  TextEditingController password = new TextEditingController();
 
   //String msg = '';
 
@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
     final response =
         await http.post("http://192.168.43.229:9000/api/login", body: {
       "email": email.text,
-      "password": pass.text,
+      "password": password.text,
     });
 
     // Future<List> _register() async {
@@ -140,7 +140,7 @@ class _MainPageState extends State<MainPage> {
                               labelStyle: TextStyle(color: Color(0xFF33691E))),
                         ),
                         TextField(
-                          controller: pass,
+                          controller: password,
                           obscureText: true,
                           decoration: InputDecoration(
                               icon: Icon(

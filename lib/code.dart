@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// tes/mqtt/state/MQTTAppState.dart
 import 'package:tes/mqtt/state/MQTTAppState.dart';
 import 'package:tes/widgets/mqttView.dart';
 import 'package:provider/provider.dart';
@@ -263,7 +262,7 @@ class _CodeState extends State<Code> {
                     }));
                   },
                   child: Text(
-                    "Contoh pub/sub",
+                    "Grafik",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

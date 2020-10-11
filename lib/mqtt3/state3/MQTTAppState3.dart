@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 
-//model for mqtt connection and subscription
-enum MQTTAppConnectionState { connected, disconnected, connecting }
+enum MQTTAppConnectionState3 { connected, disconnected, connecting }
 
-class MQTTAppState with ChangeNotifier {
-  MQTTAppConnectionState _appConnectionState =
-      MQTTAppConnectionState.disconnected;
+class MQTTAppState3 with ChangeNotifier {
+  // ignore: unused_field
+  MQTTAppConnectionState3 _appConnectionState3 =
+      MQTTAppConnectionState3.disconnected;
+
+  void setAppConnectionState3(MQTTAppConnectionState3 connecting) {}
 
   String _receivedText = '';
   String _historyText = '';
@@ -23,16 +25,13 @@ class MQTTAppState with ChangeNotifier {
 
   double _index = 1;
   List<FlSpot> _data = [FlSpot(0, 10)];
-  List<FlSpot> _nomor = [FlSpot(0, 10)];
-
   double _index1 = 1;
   List<FlSpot> _data1 = [FlSpot(0, 10)];
-  List<FlSpot> _nomor1 = [FlSpot(0, 10)];
 
-  void setReceivedText(String text) {
-    var dt = DateTime.now();
-    var newDt = DateFormat.Hms().format(dt);
-    _time.add(newDt);
+  void setReceivedTextc(String text) {
+    var dat = DateTime.now();
+    var newDat = DateFormat.Hms().format(dat);
+    _time.add(newDat);
     _data.add(FlSpot(_index, double.parse(text)));
     _receivedText = text;
     _historyText = _historyText + '\n' + _receivedText;
@@ -40,13 +39,13 @@ class MQTTAppState with ChangeNotifier {
       _maxData = _data.length.toDouble() + 2;
     }
     _index++;
-    notifyListeners(); //BERFUNGSI UNTUK MEMBERITAHUKAN BAHWA ADA DATA BARU SEHINGGA WIDGET AKAN DI RE-RENDER
+    notifyListeners();
   }
 
-  void setReceivedText1(String text) {
-    var dt1 = DateTime.now();
-    var newDt1 = DateFormat.Hms().format(dt1);
-    _time1.add(newDt1);
+  void setReceivedTextc1(String text) {
+    var dat1 = DateTime.now();
+    var newDat1 = DateFormat.Hms().format(dat1);
+    _time1.add(newDat1);
     _data1.add(FlSpot(_index1, double.parse(text)));
     _receivedText1 = text;
     _historyText1 = _historyText1 + '\n' + _receivedText1;
@@ -57,15 +56,15 @@ class MQTTAppState with ChangeNotifier {
     notifyListeners();
   }
 
-  void setAppConnectionState(MQTTAppConnectionState state) {
-    _appConnectionState = state;
+  void setAppConnectionState(MQTTAppConnectionState3 state2) {
+    _appConnectionState3 = state2;
     notifyListeners();
   }
 
   List<FlSpot> get getData => _data;
   List<FlSpot> get getData1 => _data1;
-  List<FlSpot> get getNomor => _nomor;
-  List<FlSpot> get getNomor1 => _nomor1;
+// List<FlSpot> get getNomor => _nomor;
+// List<FlSpot> get getNomor1 => _nomor1;
   List get getTitles => _time;
   List get getTitles1 => _time1;
   double get maxData => _maxData;
@@ -73,9 +72,5 @@ class MQTTAppState with ChangeNotifier {
 
   String get getReceivedText => _receivedText;
   String get getHistoryText => _historyText;
-  MQTTAppConnectionState get getAppConnectionState => _appConnectionState;
-
-  // String get getReceivedText1 => _receivedText1;
-  // String get getHistoryText1 => _historyText1;
-  // MQTTAppConnectionState get getAppConnectionState1 => _appConnectionState;
+  MQTTAppConnectionState3 get getAppConnectionState3 => _appConnectionState3;
 }
