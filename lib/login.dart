@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:convert';
 //import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:tes/home.dart';
 import 'package:tes/register.dart';
 
 //import 'home.dart';
@@ -24,6 +26,8 @@ class _MainPageState extends State<MainPage> {
   TextEditingController password = new TextEditingController();
 
   //String msg = '';
+  String name;
+  String email1;
 
   // ignore: missing_return
   Future<List> _login() async {
@@ -33,28 +37,36 @@ class _MainPageState extends State<MainPage> {
       "password": password.text,
     });
 
-    // Future<List> _register() async {
-    //   final response =
-    //       await http.post("http://192.168.43.229:/register", body: {
-    //         "Nama Lengkap" :
-    //         "username" :
-    //         "email" :
-    //         "password" :
-    //       });
-    //}
-    // print(response.statusCode);
-    if (response.statusCode != 200) {
+    var datauser = jsonDecode(response.body);
+    if (datauser.length == 0) {
       setState(() {
+        //msg = "Login fail";
         _showAlertDialog(context);
       });
     } else {
-      Navigator.pushReplacementNamed(context, '/Home');
+      name = datauser['name'];
+      email1 = datauser['email'];
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) {
+        return Home(name: name, email: email1);
+      }));
+      print(response.body);
     }
+
+    // print(response.statusCode);
+    // if (response.statusCode != 200) {
+    //   setState(() {
+    //     _showAlertDialog(context);
+    //   });
+    // } else {
+    //   Navigator.pushReplacementNamed(context, '/Home');
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFF1F8E9),
       body: Stack(
         children: <Widget>[
@@ -76,15 +88,37 @@ class _MainPageState extends State<MainPage> {
             left: -getSmallDiameter(context) / 4,
             top: -getSmallDiameter(context) / 4,
             child: Container(
-              child: Center(
-                child: Text(
-                  "MyPanel",
-                  style: TextStyle(fontSize: 30, color: Color(0xFF303030)),
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image(
+                    image: AssetImage('assets/logofix.png'),
+                    width: 70,
+                    height: 70,
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 5)),
+                  Text(
+                    "MyPanel",
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                        fontFamily: 'Piedra'),
+                  ),
+                ],
               ),
+              // child: Center(
+              //   child: Text(
+              //     "MyPanel",
+              //     style: TextStyle(fontSize: 30, color: Color(0xFF303030)),
+              //     textAlign: TextAlign.right,
+              //   ),
+              // ),
               width: getBigDiameter(context),
               height: getBigDiameter(context),
               decoration: BoxDecoration(
+                  // image: const DecorationImage(
+                  //     image: AssetImage('assets/solarsolar.png'),
+                  //     alignment: FractionalOffset.center),
                   shape: BoxShape.circle,
                   gradient: LinearGradient(colors: [
                     //Color(0xFFFFF59D),
@@ -93,26 +127,26 @@ class _MainPageState extends State<MainPage> {
                   ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
             ),
           ),
-          // Positioned(
-          //   left: -getBigDiameter(context) / 4,
-          //   bottom: -getBigDiameter(context) / 4,
-          //   child: Container(
-          //     width: getBigDiameter(context),
-          //     height: getBigDiameter(context),
-          //     decoration: BoxDecoration(
-          //         shape: BoxShape.circle, color: Color(0xFFE8F5E9)),
-          //   ),
-          // ),
-          // Positioned(
-          //   right: -getBigDiameter(context) / 2,
-          //   bottom: -getBigDiameter(context) / 2,
-          //   child: Container(
-          //     width: getBigDiameter(context),
-          //     height: getBigDiameter(context),
-          //     decoration: BoxDecoration(
-          //         shape: BoxShape.circle, color: Color(0xFFE8F5E9)),
-          //   ),
-          // ),
+          Positioned(
+            left: -getBigDiameter(context) / 4,
+            bottom: -getBigDiameter(context) / 4,
+            child: Container(
+              width: getBigDiameter(context),
+              height: getBigDiameter(context),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Color(0xFFE8F5E9)),
+            ),
+          ),
+          Positioned(
+            right: -getBigDiameter(context) / 2,
+            bottom: -getBigDiameter(context) / 2,
+            child: Container(
+              width: getBigDiameter(context),
+              height: getBigDiameter(context),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Color(0xFFE8F5E9)),
+            ),
+          ),
           Align(
               alignment: Alignment.bottomCenter,
               child: ListView(
@@ -162,7 +196,10 @@ class _MainPageState extends State<MainPage> {
                         RaisedButton(
                           padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
                           color: Colors.lightGreen[700],
-                          child: Text("Login"),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(color: Colors.white),
+                          ),
                           onPressed: () {
                             _login();
                           },
@@ -175,15 +212,15 @@ class _MainPageState extends State<MainPage> {
                   //   msg,
                   //   style: TextStyle(fontSize: 20, color: Colors.red),
                   // ),
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: Container(
-                        margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
-                        child: Text(
-                          "FORGOT PASSWORD",
-                          style: TextStyle(color: Colors.white, fontSize: 11),
-                        ),
-                      )),
+                  // Align(
+                  //     alignment: Alignment.centerRight,
+                  //     child: Container(
+                  //       margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
+                  //       child: Text(
+                  //         "FORGOT PASSWORD",
+                  //         style: TextStyle(color: Colors.white, fontSize: 11),
+                  //       ),
+                  //     )),
                   Container(
                     margin: EdgeInsets.fromLTRB(90, 0, 20, 30),
                     child: Row(
@@ -228,23 +265,28 @@ class _MainPageState extends State<MainPage> {
                       Text(
                         "DON'T HAVE AN ACCOUNT? ",
                         style: TextStyle(
-                            fontSize: 11,
+                            fontSize: 13,
                             color: Colors.blueGrey,
-                            fontWeight: FontWeight.w500),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "times-new-roman"),
                       ),
                       Container(
                         child: Column(
                           children: <Widget>[
                             RaisedButton(
-                              child: Text("sign up"),
+                              color: Colors.lightGreen[700],
+                              child: Text(
+                                "Sign up",
+                                style: TextStyle(color: Colors.white),
+                              ),
                               onPressed: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
                                   return Register();
                                 }));
                               },
-                              elevation: 5,
-                            )
+                              elevation: 0,
+                            ),
                           ],
                         ),
                       )

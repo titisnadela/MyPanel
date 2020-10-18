@@ -72,8 +72,8 @@ class _MQTTViewState extends State<MQTTView> {
         Chart(
           data: currentAppState.getData,
           data1: currentAppState.getData1,
-          nomor: currentAppState.getNomor,
-          nomor1: currentAppState.getNomor1,
+          // nomor: currentAppState.getNomor,
+          // nomor1: currentAppState.getNomor1,
           titles: currentAppState.getTitles,
           titles1: currentAppState.getTitles1,
           maxData: currentAppState.maxData,

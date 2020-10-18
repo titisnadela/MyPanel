@@ -36,6 +36,10 @@ dependencies:
   fl_chart: ^0.11.1
   intl: ^0.16.1
   pull_to_refresh: ^1.6.2
+  workmanager: ^0.2.3
+  flutter_local_notifications: ^2.0.0+1
+  imagebutton: ^0.0.6
+
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +68,16 @@ flutter:
      - assets/solarmanual.png
      - assets/user.png
      - assets/register.png
+     - assets/solar panel.png
+     - assets/solarsolar.png
+     - assets/green.png
+     - assets/logo panel.png
+     - assets/logologo.png
+     - assets/logoplis.png
+     - assets/logofix.png
+     - assets/topologi.png
+     - assets/Gambar1.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -94,7 +108,11 @@ flutter:
      - family: Yonitta
        fonts:
          - asset: fonts/Yonitta.ttf
-         
+
+     - family: Piedra
+       fonts:
+         - asset: fonts/Piedra-Regular.ttf
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
