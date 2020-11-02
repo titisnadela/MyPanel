@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
-//import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tes/home.dart';
 import 'package:tes/register.dart';
-
 //import 'home.dart';
 
 class MainPage extends StatefulWidget {
@@ -38,7 +36,8 @@ class _MainPageState extends State<MainPage> {
     });
 
     var datauser = jsonDecode(response.body);
-    if (datauser.length == 0) {
+    //if (datauser.length == 0) {
+    if (datauser['name'] == null) {
       setState(() {
         //msg = "Login fail";
         _showAlertDialog(context);
@@ -208,55 +207,11 @@ class _MainPageState extends State<MainPage> {
                       ],
                     ),
                   ),
-                  // Text(
-                  //   msg,
-                  //   style: TextStyle(fontSize: 20, color: Colors.red),
-                  // ),
-                  // Align(
-                  //     alignment: Alignment.centerRight,
-                  //     child: Container(
-                  //       margin: EdgeInsets.fromLTRB(0, 0, 20, 20),
-                  //       child: Text(
-                  //         "FORGOT PASSWORD",
-                  //         style: TextStyle(color: Colors.white, fontSize: 11),
-                  //       ),
-                  //     )),
                   Container(
                     margin: EdgeInsets.fromLTRB(90, 0, 20, 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        // SizedBox(
-                        //     width: MediaQuery.of(context).size.width * 0.5,
-                        //     height: 40,
-                        //     child: Container(
-                        //       child: Material(
-                        //         borderRadius: BorderRadius.circular(20),
-                        //         color: Color(0xff558b2f),
-                        //         child: InkWell(
-                        //           borderRadius: BorderRadius.circular(20),
-                        //           splashColor: Colors.blueGrey,
-                        //           child: Center(
-                        //               // child: Text(
-                        //               //   "SIGN IN",
-                        //               //   style: TextStyle(
-                        //               //       color: Colors.black,
-                        //               //       fontWeight: FontWeight.w700),
-                        //               // ),
-                        //               ),
-                        //         ),
-                        //       ),
-                        //       decoration: BoxDecoration(
-                        //           borderRadius: BorderRadius.circular(20),
-                        //           gradient: LinearGradient(
-                        //               colors: [
-                        //                 Color(0xFFF1F8E9),
-                        //                 Color(0xFF9CCC65)
-                        //               ],
-                        //               begin: Alignment.topCenter,
-                        //               end: Alignment.bottomCenter)),
-                        //     ))
-                      ],
+                      children: <Widget>[],
                     ),
                   ),
                   Row(
@@ -290,13 +245,6 @@ class _MainPageState extends State<MainPage> {
                           ],
                         ),
                       )
-                      // Text(
-                      //   "SIGN UP ",
-                      //   style: TextStyle(
-                      //       fontSize: 11,
-                      //       color: Colors.black,
-                      //       fontWeight: FontWeight.w700),
-                      // )
                     ],
                   )
                 ],

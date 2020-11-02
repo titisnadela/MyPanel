@@ -7,7 +7,6 @@ import 'package:tes/code3.dart';
 import 'package:tes/login.dart';
 import 'package:tes/topolgi.dart';
 import 'code2.dart';
-import 'package:imagebutton/imagebutton.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
 
@@ -22,189 +21,115 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String barcode = "";
 
-  // get http => null;
-
-  // ignore: missing_return
-  // Future<List> user() async {
-  //   // ignore: unused_local_variable
-  //   final response = await http.post("http://192.168.43.229:9000/api/login",
-  //       body: {"accountName": name.text, "accountEmail": email.text});
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   name.text = 'name';
-  //   email.text = 'email';
-  // }
-
-  // @override
-  // void dispose() {
-  //   name.dispose();
-  //   email.dispose();
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1F8E9),
-      appBar: AppBar(
-        title: Text("Home"),
-        backgroundColor: Color(0xFF558B2F),
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: Color(0xFF558B2F)),
-              currentAccountPicture:
-                  Icon(Icons.account_circle, size: 80, color: Colors.white),
-              accountName: Text(widget.name),
-              accountEmail: Text(widget.email),
-              // accountName: Text('${name}'),
-              // accountEmail: Text('${email}')
-            ),
-            ListTile(
-              leading: Icon(Icons.scatter_plot),
-              title: Text('Topologi'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (BuildContext context) {
-                  return Topologi();
-                }));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.info_outline),
-              title: Text('About'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (BuildContext context) {
-                  return About();
-                }));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Logout'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return MainPage();
-                }));
-              },
-            )
-          ],
+        backgroundColor: Color(0xFFF1F8E9),
+        appBar: AppBar(
+          title: Text("Home"),
+          backgroundColor: Color(0xFF558B2F),
         ),
-      ),
-      body: Stack(children: <Widget>[
-        // ignore: missing_required_param
-        ImageButton(
-            children: <Widget>[],
-            width: 100,
-            height: 100,
-            paddingTop: 5,
-            unpressedImage: Image.asset("assets/qrcode1.png"),
-            onTap: () async {
-              try {
-                String barcode = await BarcodeScanner.scan();
-                setState(() {
-                  this.barcode = barcode;
-                  switch (barcode) {
-                    case "node 1":
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Code();
-                      }));
+        drawer: Drawer(
+          child: Column(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Color(0xFF558B2F)),
+                currentAccountPicture:
+                    Icon(Icons.account_circle, size: 80, color: Colors.white),
+                accountName: Text(widget.name),
+                accountEmail: Text(widget.email),
+              ),
+              ListTile(
+                leading: Icon(Icons.scatter_plot),
+                title: Text('Topologi'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return Topologi();
+                  }));
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.info_outline),
+                title: Text('About'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return About();
+                  }));
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.exit_to_app),
+                title: Text('Logout'),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return MainPage();
+                  }));
+                },
+              )
+            ],
+          ),
+        ),
+        body: Stack(children: <Widget>[
+          Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+            Container(
+              decoration: BoxDecoration(shape: BoxShape.rectangle),
+              child: Image(
+                image: AssetImage(
+                  'assets/qrcode1.png',
+                ),
+                width: 100,
+                height: 100,
+              ),
+            ),
+            RaisedButton(
+              color: Colors.lightGreen[700],
+              onPressed: () async {
+                try {
+                  String barcode = await BarcodeScanner.scan();
+                  setState(() {
+                    this.barcode = barcode;
+                    switch (barcode) {
+                      case "node 1":
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Code();
+                        }));
 
-                      break;
-                    case "node 2":
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Code2();
-                      }));
+                        break;
+                      case "node 2":
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Code2();
+                        }));
 
-                      break;
-                    case "node 3":
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Code3();
-                      }));
-                      break;
-                    default:
+                        break;
+                      case "node 3":
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Code3();
+                        }));
+                        break;
+                      default:
+                    }
+                  });
+                } on PlatformException catch (error) {
+                  if (error.code == BarcodeScanner.CameraAccessDenied) {
+                    setState(() {
+                      this.barcode = 'izin kamera tidak diizinkan oleh user';
+                    });
+                  } else {
+                    setState(() {
+                      this.barcode = 'Error: $error';
+                    });
                   }
-                });
-              } on PlatformException catch (error) {
-                if (error.code == BarcodeScanner.CameraAccessDenied) {
-                  setState(() {
-                    this.barcode = 'izin kamera tidak diizinkan oleh user';
-                  });
-                } else {
-                  setState(() {
-                    this.barcode = 'Error: $error';
-                  });
                 }
-              }
-            }),
-        //Row(mainAxisAlignment: MainAxisAlignment.start,
-        //children: <Widget>[
-        // Container(
-        //   decoration: BoxDecoration(shape: BoxShape.rectangle),
-        //   child: Image(
-        //     image: AssetImage(
-        //       'assets/qrcode1.png',
-        //     ),
-        //     width: 100,
-        //     height: 100,
-        //   ),
-        // ),
-        RaisedButton(
-          color: Colors.lightGreen[700],
-          onPressed: () async {
-            try {
-              String barcode = await BarcodeScanner.scan();
-              setState(() {
-                this.barcode = barcode;
-                switch (barcode) {
-                  case "node 1":
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Code();
-                    }));
-
-                    break;
-                  case "node 2":
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Code2();
-                    }));
-
-                    break;
-                  case "node 3":
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Code3();
-                    }));
-                    break;
-                  default:
-                }
-              });
-            } on PlatformException catch (error) {
-              if (error.code == BarcodeScanner.CameraAccessDenied) {
-                setState(() {
-                  this.barcode = 'izin kamera tidak diizinkan oleh user';
-                });
-              } else {
-                setState(() {
-                  this.barcode = 'Error: $error';
-                });
-              }
-            }
-          },
-          child: Text("Scan"),
-          elevation: 5,
-        ),
-      ]),
-    );
+              },
+              child: Text("Scan"),
+              elevation: 5,
+            ),
+          ]),
+        ]));
   }
 }

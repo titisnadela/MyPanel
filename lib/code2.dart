@@ -13,28 +13,21 @@ class _Code2State extends State<Code2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFF1F8E9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
-            "MyPanel",
+            "Node 2",
             style: TextStyle(fontSize: 20, color: Colors.white),
           ),
-          backgroundColor: Color(0xff558b2f),
+          backgroundColor: Color(0xFF558B2F),
         ),
         body: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
+          children: [
+            Column(
+              children: [
                 Container(
-                  width: 411,
-                  height: 50,
-                  color: Color(0xfff1f8e9),
-                  alignment: FractionalOffset(0.025, 0.5),
-                  child: Text(
-                    "Node 2",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
+                  child: Text("network"),
+                )
               ],
             ),
             Row(
@@ -42,7 +35,23 @@ class _Code2State extends State<Code2> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 RaisedButton(
-                  color: Colors.green[800],
+                  color: Colors.lightGreen[700],
+                  onPressed: () {},
+                  child: Text(
+                    "On",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                RaisedButton(
+                  color: Colors.lightGreen[700],
+                  onPressed: () {},
+                  child: Text(
+                    "Off",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                RaisedButton(
+                  color: Colors.lightGreen[700],
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {

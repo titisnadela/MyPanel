@@ -17,6 +17,13 @@ class _MQTTViewState extends State<MQTTView> {
   final TextEditingController _messageTextController = TextEditingController();
   final TextEditingController _topicTextController = TextEditingController();
   final TextEditingController _topic1TextController = TextEditingController();
+  final TextEditingController _topic2TextController = TextEditingController();
+  final TextEditingController _topic3TextController = TextEditingController();
+  final TextEditingController _topic4TextController = TextEditingController();
+  final TextEditingController _topic5TextController = TextEditingController();
+  final TextEditingController _topic6TextController = TextEditingController();
+  final TextEditingController _topic7TextController = TextEditingController();
+  final TextEditingController _topic8TextController = TextEditingController();
   MQTTAppState currentAppState;
   //MQTTAppState currentAppState1;
   MQTTManager manager;
@@ -26,8 +33,15 @@ class _MQTTViewState extends State<MQTTView> {
     super.initState();
     //_configureAndConnect();
     _hostTextController.text = '192.168.43.229';
-    _topicTextController.text = 'topic/temp';
-    _topic1TextController.text = 'topic/hum';
+    _topicTextController.text = 'node1/v1';
+    _topic1TextController.text = 'node1/v2';
+    _topic2TextController.text = 'node1/v3';
+    _topic3TextController.text = 'node1/c1';
+    _topic4TextController.text = 'node1/c2';
+    _topic5TextController.text = 'node1/c3';
+    _topic6TextController.text = 'node1/light';
+    _topic7TextController.text = 'node1/off';
+    _topic8TextController.text = 'node1/notif';
   }
 
   @override
@@ -36,6 +50,13 @@ class _MQTTViewState extends State<MQTTView> {
     _messageTextController.dispose();
     _topicTextController.dispose();
     _topic1TextController.dispose();
+    _topic2TextController.dispose();
+    _topic3TextController.dispose();
+    _topic4TextController.dispose();
+    _topic5TextController.dispose();
+    _topic6TextController.dispose();
+    _topic7TextController.dispose();
+    _topic8TextController.dispose();
     super.dispose();
   }
 
@@ -51,15 +72,15 @@ class _MQTTViewState extends State<MQTTView> {
     final Scaffold scaffold = Scaffold(
       appBar: _buildAppBar(context),
       body: _buildColumn(),
-      backgroundColor: Colors.green[200],
+      backgroundColor: Color(0xFFF1F8E9),
     );
     return scaffold;
   }
 
   Widget _buildAppBar(BuildContext context) {
     return AppBar(
-      title: const Text('MQTT'),
-      backgroundColor: Colors.greenAccent,
+      title: const Text('Node 1'),
+      backgroundColor: Color(0xFF558B2F),
     );
   }
 
@@ -72,13 +93,49 @@ class _MQTTViewState extends State<MQTTView> {
         Chart(
           data: currentAppState.getData,
           data1: currentAppState.getData1,
-          // nomor: currentAppState.getNomor,
-          // nomor1: currentAppState.getNomor1,
+          data2: currentAppState.getData2,
+          data3: currentAppState.getData3,
+          data4: currentAppState.getData4,
+          data5: currentAppState.getData5,
+          data6: currentAppState.getData6,
+          data7: currentAppState.getData7,
+          data8: currentAppState.getData8,
           titles: currentAppState.getTitles,
           titles1: currentAppState.getTitles1,
           maxData: currentAppState.maxData,
           maxData1: currentAppState.maxData1,
-        )
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Image(
+              image: AssetImage('assets/line1.png'),
+              width: 20,
+              height: 20,
+            ),
+            //Text('solar panel'),
+            Image(
+              image: AssetImage('assets/line2.png'),
+              width: 20,
+              height: 20,
+            ),
+            //Text('battery'),
+            Image(
+              image: AssetImage('assets/line3.png'),
+              width: 20,
+              height: 20,
+            ),
+            //Text('output'),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text('  solar panel'),
+            Text('battery  '),
+            Text('output      '),
+          ],
+        ),
       ],
     );
   }
@@ -221,17 +278,6 @@ class _MQTTViewState extends State<MQTTView> {
     }
   }
 
-  Future refreshData() async {
-    // ignore: unnecessary_statements
-    _hostTextController;
-    // ignore: unnecessary_statements
-    _topicTextController;
-    // ignore: unnecessary_statements
-    _topic1TextController;
-    await Future.delayed(Duration(seconds: 2));
-    setState(() {});
-  }
-
   void _configureAndConnect() {
     // ignore: flutter_style_todos
     String osPrefix = 'Flutter_iOS';
@@ -242,8 +288,15 @@ class _MQTTViewState extends State<MQTTView> {
         // host: _hostTextController.text,
         // topic: _topicTextController.text,
         host: '192.168.43.229',
-        topic: 'topic/temp',
-        topic1: 'topic/hum',
+        topic: 'node1/v1',
+        topic1: 'node1/v2',
+        topic2: 'node1/v3',
+        topic3: 'node1/c1',
+        topic4: 'node1/c2',
+        topic5: 'node1/c3',
+        topic6: 'node1/light',
+        topic7: 'node1/off',
+        topic8: 'node1/notif',
         identifier: osPrefix,
         state: currentAppState);
     manager.initializeMQTTClient();

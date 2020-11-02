@@ -15,8 +15,15 @@ class MQTTView2 extends StatefulWidget {
 class _MQTTView2State extends State<MQTTView2> {
   final TextEditingController _hostTextController2 = TextEditingController();
   final TextEditingController _messageTextContoller2 = TextEditingController();
-  final TextEditingController _topikTextController = TextEditingController();
-  final TextEditingController _topik1TextController = TextEditingController();
+  final TextEditingController _topicTextController = TextEditingController();
+  final TextEditingController _topic1TextController = TextEditingController();
+  final TextEditingController _topic2TextController = TextEditingController();
+  final TextEditingController _topic3TextController = TextEditingController();
+  final TextEditingController _topic4TextController = TextEditingController();
+  final TextEditingController _topic5TextController = TextEditingController();
+  final TextEditingController _topic6TextController = TextEditingController();
+  final TextEditingController _topic7TextController = TextEditingController();
+  final TextEditingController _topic8TextController = TextEditingController();
   MQTTAppState2 currentAppState2;
   //MQTTAppState2 currentAppState21;
   MQTTManager2 manager2;
@@ -25,16 +32,30 @@ class _MQTTView2State extends State<MQTTView2> {
   void initState() {
     super.initState();
     _hostTextController2.text = '192.168.43.229';
-    _topikTextController.text = 'topic/temp';
-    _topik1TextController.text = 'topic/hum';
+    _topicTextController.text = 'node2/v1';
+    _topic1TextController.text = 'node2/v2';
+    _topic2TextController.text = 'node2/v3';
+    _topic3TextController.text = 'node2/c1';
+    _topic4TextController.text = 'node2/c2';
+    _topic5TextController.text = 'node2/c3';
+    _topic6TextController.text = 'node2/light';
+    _topic7TextController.text = 'node2/off';
+    _topic8TextController.text = 'node2/notif';
   }
 
   @override
   void dispose() {
     _hostTextController2.dispose();
     _messageTextContoller2.dispose();
-    _topikTextController.dispose();
-    _topik1TextController.dispose();
+    _topicTextController.dispose();
+    _topic1TextController.dispose();
+    _topic2TextController.dispose();
+    _topic3TextController.dispose();
+    _topic4TextController.dispose();
+    _topic5TextController.dispose();
+    _topic6TextController.dispose();
+    _topic7TextController.dispose();
+    _topic8TextController.dispose();
     super.dispose();
   }
 
@@ -49,15 +70,15 @@ class _MQTTView2State extends State<MQTTView2> {
     final Scaffold scaffold2 = Scaffold(
       appBar: _buildAppBar2(context),
       body: _buildColumn2(),
-      backgroundColor: Colors.green[200],
+      backgroundColor: Color(0xFFF1F8E9),
     );
     return scaffold2;
   }
 
   Widget _buildAppBar2(BuildContext context) {
     return AppBar(
-      title: const Text('MQTT'),
-      backgroundColor: Colors.greenAccent,
+      title: const Text('Node 2'),
+      backgroundColor: Color(0xFF558B2F),
     );
   }
 
@@ -67,11 +88,49 @@ class _MQTTView2State extends State<MQTTView2> {
         Chart2(
           data: currentAppState2.getData,
           data1: currentAppState2.getData1,
+          data2: currentAppState2.getData2,
+          data3: currentAppState2.getData3,
+          data4: currentAppState2.getData4,
+          data5: currentAppState2.getData5,
+          data6: currentAppState2.getData6,
+          data7: currentAppState2.getData7,
+          data8: currentAppState2.getData8,
           titles: currentAppState2.getTitles,
           titles1: currentAppState2.getTitles1,
           maxData: currentAppState2.maxData,
           maxData1: currentAppState2.maxData1,
-        )
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Image(
+              image: AssetImage('assets/line1.png'),
+              width: 20,
+              height: 20,
+            ),
+            //Text('solar panel'),
+            Image(
+              image: AssetImage('assets/line2.png'),
+              width: 20,
+              height: 20,
+            ),
+            //Text('battery'),
+            Image(
+              image: AssetImage('assets/line3.png'),
+              width: 20,
+              height: 20,
+            ),
+            //Text('output'),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text('  solar panel'),
+            Text('battery  '),
+            Text('output      '),
+          ],
+        ),
       ],
     );
   }
@@ -85,7 +144,7 @@ class _MQTTView2State extends State<MQTTView2> {
               currentAppState2.getAppConnectionState2),
           const SizedBox(height: 10),
           _buildTextFieldWith2(
-              _topikTextController,
+              _topicTextController,
               'Enter a topic to subscribe or listen',
               currentAppState2.getAppConnectionState2),
           const SizedBox(height: 10),
@@ -130,7 +189,7 @@ class _MQTTView2State extends State<MQTTView2> {
       shouldEnable = true;
     } else if ((controller == _hostTextController2 &&
             state2 == MQTTAppConnectionState2.disconnected) ||
-        (controller == _topikTextController &&
+        (controller == _topicTextController &&
             state2 == MQTTAppConnectionState2.disconnected)) {
       shouldEnable = true;
     }
@@ -208,17 +267,6 @@ class _MQTTView2State extends State<MQTTView2> {
     }
   }
 
-  Future refreshData() async {
-    // ignore: unnecessary_statements
-    _hostTextController2;
-    // ignore: unnecessary_statements
-    _topikTextController;
-    // ignore: unnecessary_statements
-    _topik1TextController;
-    await Future.delayed(Duration(seconds: 2));
-    setState(() {});
-  }
-
   void _configureAndConnect() {
     // ignore: flutter_style_todos
     String osPrefix = 'Flutter_iOS';
@@ -229,8 +277,15 @@ class _MQTTView2State extends State<MQTTView2> {
         // host: _hostTextController.text,
         // topic: _topicTextController.text,
         host2: '192.168.43.229',
-        topik: 'topic/temp',
-        topik1: 'topic/hum',
+        topic: 'node2/v1',
+        topic1: 'node2/v2',
+        topic2: 'node2/v3',
+        topic3: 'node2/c1',
+        topic4: 'node2/c2',
+        topic5: 'node2/c3',
+        topic6: 'node2/light',
+        topic7: 'node2/off',
+        topic8: 'node2/notif',
         identifier2: osPrefix,
         state2: currentAppState2);
     manager2.initializeMQTTClient2();
