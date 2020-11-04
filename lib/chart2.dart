@@ -18,6 +18,7 @@ class Chart2 extends StatelessWidget {
   final List titles1;
   final double maxData;
   final double maxData1;
+  final LineTouchData lineTouchData;
 
   Chart2({
     this.data,
@@ -33,6 +34,7 @@ class Chart2 extends StatelessWidget {
     this.titles1,
     this.maxData,
     this.maxData1,
+    this.lineTouchData,
   });
 
   final List<Color> gradientColors = [
@@ -67,6 +69,7 @@ class Chart2 extends StatelessWidget {
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.elliptical(0, 0)),
                   gradient: LinearGradient(colors: [
+                    //Color(0x000000000)
                     Color(0xFFF1F8E9),
                     Color(0xFFF1F8E9),
                   ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
@@ -77,7 +80,7 @@ class Chart2 extends StatelessWidget {
                   // padding: const EdgeInsets.only(
                   //     right: 18, left: 12, top: 24, bottom: 12),
                   child: LineChart(
-                    mainData(),
+                    _mainData(),
                   )),
             ),
           ),
@@ -103,7 +106,7 @@ class Chart2 extends StatelessWidget {
                 // padding: const EdgeInsets.only(
                 //     right: 18, left: 12, top: 24, bottom: 12),
                 child: LineChart(
-                  mainData1(),
+                  _mainData1(),
                 ),
               ),
             ),
@@ -113,8 +116,11 @@ class Chart2 extends StatelessWidget {
     );
   }
 
-  LineChartData mainData() {
+  LineChartData _mainData() {
     return LineChartData(
+      lineTouchData: LineTouchData(
+          touchTooltipData: LineTouchTooltipData(
+              tooltipBgColor: Colors.blueGrey.withOpacity(0.8))),
       //clipToBorder: true,
       gridData: FlGridData(
         show: true,
@@ -227,7 +233,7 @@ class Chart2 extends StatelessWidget {
     return [lineChartBarData1, lineChartBarData2, lineChartBarData3];
   }
 
-  LineChartData mainData1() {
+  LineChartData _mainData1() {
     return LineChartData(
       gridData: FlGridData(
         show: true,
@@ -295,7 +301,7 @@ class Chart2 extends StatelessWidget {
     // ignore: unused_local_variable
     final LineChartBarData lineChartBarData3 = LineChartBarData(
         spots: data3,
-        isCurved: true,
+        isCurved: false,
         colors: [Colors.blue],
         barWidth: 2,
         isStrokeCapRound: true,

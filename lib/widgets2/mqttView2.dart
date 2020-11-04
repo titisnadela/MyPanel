@@ -70,7 +70,8 @@ class _MQTTView2State extends State<MQTTView2> {
     final Scaffold scaffold2 = Scaffold(
       appBar: _buildAppBar2(context),
       body: _buildColumn2(),
-      backgroundColor: Color(0xFFF1F8E9),
+      backgroundColor: Colors.black,
+      //backgroundColor: Color(0xFFF1F8E9),
     );
     return scaffold2;
   }
