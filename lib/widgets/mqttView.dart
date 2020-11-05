@@ -139,12 +139,6 @@ class _MQTTViewState extends State<MQTTView> {
       ],
     );
   }
-  // Row(
-  //   children: <Widget>[
-  //     _buildScrollableTextWith(currentAppState.getHistoryText),
-  //     _buildScrollableTextWith(currentAppState.getHistoryText1)
-  //   ],
-  // )
 
   Widget buildEditableColumn() {
     return Padding(

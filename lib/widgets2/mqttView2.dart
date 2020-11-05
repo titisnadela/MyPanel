@@ -70,8 +70,8 @@ class _MQTTView2State extends State<MQTTView2> {
     final Scaffold scaffold2 = Scaffold(
       appBar: _buildAppBar2(context),
       body: _buildColumn2(),
-      backgroundColor: Colors.black,
-      //backgroundColor: Color(0xFFF1F8E9),
+      //backgroundColor: Colors.black,
+      backgroundColor: Color(0xFFF1F8E9),
     );
     return scaffold2;
   }
@@ -109,19 +109,16 @@ class _MQTTView2State extends State<MQTTView2> {
               width: 20,
               height: 20,
             ),
-            //Text('solar panel'),
             Image(
               image: AssetImage('assets/line2.png'),
               width: 20,
               height: 20,
             ),
-            //Text('battery'),
             Image(
               image: AssetImage('assets/line3.png'),
               width: 20,
               height: 20,
             ),
-            //Text('output'),
           ],
         ),
         Row(

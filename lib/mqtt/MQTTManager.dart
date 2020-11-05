@@ -101,6 +101,20 @@ class MQTTManager {
     _client.publishMessage(_topic, MqttQos.exactlyOnce, builder.payload);
   }
 
+  void publish1(String message) {
+    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+    builder.addString(message);
+    _client.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+        MqttQos.exactlyOnce, builder.payload);
+  }
+
+  void publish2(String message) {
+    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+    builder.addString(message);
+    _client.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+        MqttQos.exactlyOnce, builder.payload);
+  }
+
   /// The subscribed callback
   void onSubscribed(String topic) {
     print('EXAMPLE::Subscription confirmed for topic $topic');
@@ -133,11 +147,7 @@ class MQTTManager {
       final MqttPublishMessage recMess = c[0].payload;
       final String pt =
           MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
-      // if (c[0].topic == 'topic/temp') {
-      //   _currentState.setReceivedText(pt);
-      // } else if (c[0].topic == 'topic/hum') {
-      //   _currentState.setReceivedText1(pt);
-      // }
+
       if (c[0].topic == "node1/v1") {
         _currentState.setReceivedText(pt);
       } else if (c[0].topic == "node1/v2") {
@@ -150,10 +160,6 @@ class MQTTManager {
         _currentState.setReceivedText4(pt);
       } else if (c[0].topic == "node1/c3") {
         _currentState.setReceivedText5(pt);
-      } else if (c[0].topic == "node1/light") {
-        _currentState.setReceivedText6(pt);
-      } else if (c[0].topic == "node1/off") {
-        _currentState.setReceivedText7(pt);
       } else if (c[0].topic == "node1/notif") {
         _currentState.setReceivedText8(pt);
       }

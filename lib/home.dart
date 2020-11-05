@@ -1,6 +1,7 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+//import 'package:provider/provider.dart';
 import 'package:tes/about.dart';
 import 'package:tes/code.dart';
 import 'package:tes/code3.dart';

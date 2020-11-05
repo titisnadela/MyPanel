@@ -9,6 +9,8 @@ class Code extends StatefulWidget {
 }
 
 class _CodeState extends State<Code> {
+  get manager2 => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +37,10 @@ class _CodeState extends State<Code> {
               children: <Widget>[
                 RaisedButton(
                   color: Colors.lightGreen[700],
-                  onPressed: () {},
+                  onPressed: () {
+                    _publishMessage(
+                        '{"confirmed":true, "fPort":3, "data":"MQ=="}');
+                  },
                   child: Text(
                     "On",
                     style: TextStyle(color: Colors.white),
@@ -43,7 +48,10 @@ class _CodeState extends State<Code> {
                 ),
                 RaisedButton(
                   color: Colors.lightGreen[700],
-                  onPressed: () {},
+                  onPressed: () {
+                    _publishMessage1(
+                        '{"confirmed":true, "fPort":3, "data":"MA=="}');
+                  },
                   child: Text(
                     "Off",
                     style: TextStyle(color: Colors.white),
@@ -69,5 +77,13 @@ class _CodeState extends State<Code> {
             ),
           ],
         ));
+  }
+
+  void _publishMessage(String text) {
+    manager2.publish2(text);
+  }
+
+  void _publishMessage1(String text) {
+    manager2.publish2(text);
   }
 }

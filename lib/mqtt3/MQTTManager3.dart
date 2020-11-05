@@ -88,6 +88,20 @@ class MQTTManager3 {
     _client3.publishMessage(_topic, MqttQos.exactlyOnce, builder.payload);
   }
 
+  void publish1(String message) {
+    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+    builder.addString(message);
+    _client3.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+        MqttQos.exactlyOnce, builder.payload);
+  }
+
+  void publish2(String message) {
+    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+    builder.addString(message);
+    _client3.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+        MqttQos.exactlyOnce, builder.payload);
+  }
+
   void onSubscribed(String topic) {
     print('EXAMPLE::Subscription confirmed for topic $topic');
   }

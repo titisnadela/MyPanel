@@ -88,6 +88,20 @@ class MQTTManager2 {
     _client2.publishMessage(_topic, MqttQos.exactlyOnce, builder.payload);
   }
 
+  void publish1(String message) {
+    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+    builder.addString(message);
+    _client2.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+        MqttQos.exactlyOnce, builder.payload);
+  }
+
+  void publish2(String message) {
+    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+    builder.addString(message);
+    _client2.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+        MqttQos.exactlyOnce, builder.payload);
+  }
+
   void onSubscribed(String topik) {
     print('EXAMPLE::Subscription confirmed for topic $topik');
   }
@@ -129,10 +143,6 @@ class MQTTManager2 {
         _currentState2.setReceivedText4(pt);
       } else if (c[0].topic == "node2/c3") {
         _currentState2.setReceivedText5(pt);
-      } else if (c[0].topic == "node2/light") {
-        _currentState2.setReceivedText6(pt);
-      } else if (c[0].topic == "node2/off") {
-        _currentState2.setReceivedText7(pt);
       } else if (c[0].topic == "node2/notif") {
         _currentState2.setReceivedText8(pt);
       }
