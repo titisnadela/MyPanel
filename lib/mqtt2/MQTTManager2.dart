@@ -85,22 +85,22 @@ class MQTTManager2 {
   void publish(String message) {
     final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
     builder.addString(message);
-    _client2.publishMessage(_topic, MqttQos.exactlyOnce, builder.payload);
+    _client2.publishMessage(_topic6, MqttQos.exactlyOnce, builder.payload);
   }
 
-  void publish1(String message) {
-    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
-    builder.addString(message);
-    _client2.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
-        MqttQos.exactlyOnce, builder.payload);
-  }
+  // void publish1(String message) {
+  //   final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+  //   builder.addString(message);
+  //   _client2.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+  //       MqttQos.exactlyOnce, builder.payload);
+  // }
 
-  void publish2(String message) {
-    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
-    builder.addString(message);
-    _client2.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
-        MqttQos.exactlyOnce, builder.payload);
-  }
+  // void publish2(String message) {
+  //   final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+  //   builder.addString(message);
+  //   _client2.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
+  //       MqttQos.exactlyOnce, builder.payload);
+  // }
 
   void onSubscribed(String topik) {
     print('EXAMPLE::Subscription confirmed for topic $topik');
@@ -136,6 +136,7 @@ class MQTTManager2 {
       } else if (c[0].topic == "node2/v2") {
         _currentState2.setReceivedText1(pt);
       } else if (c[0].topic == "node2/v3") {
+        print(pt);
         _currentState2.setReceivedText2(pt);
       } else if (c[0].topic == "node2/c1") {
         _currentState2.setReceivedText3(pt);

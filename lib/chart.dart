@@ -181,11 +181,11 @@ class Chart extends StatelessWidget {
     final LineChartBarData lineChartBarData1 = LineChartBarData(
         spots: data,
         isCurved: true,
-        colors: [Colors.redAccent],
+        colors: [Colors.blue],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -200,7 +200,7 @@ class Chart extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -210,11 +210,11 @@ class Chart extends StatelessWidget {
     final LineChartBarData lineChartBarData3 = LineChartBarData(
         spots: data2,
         isCurved: true,
-        colors: [Colors.green],
+        colors: [Colors.purple],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -294,11 +294,11 @@ class Chart extends StatelessWidget {
     final LineChartBarData lineChartBarData3 = LineChartBarData(
         spots: data3,
         isCurved: true,
-        colors: [Colors.red],
+        colors: [Colors.blue],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -313,7 +313,7 @@ class Chart extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -323,11 +323,11 @@ class Chart extends StatelessWidget {
     final LineChartBarData lineChartBarData5 = LineChartBarData(
         spots: data5,
         isCurved: true,
-        colors: [Colors.green],
+        colors: [Colors.purple],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,

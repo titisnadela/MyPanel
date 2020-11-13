@@ -1,4 +1,3 @@
-import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tes/chart.dart';
@@ -16,14 +15,6 @@ class _MQTTViewState extends State<MQTTView> {
   final TextEditingController _hostTextController = TextEditingController();
   final TextEditingController _messageTextController = TextEditingController();
   final TextEditingController _topicTextController = TextEditingController();
-  final TextEditingController _topic1TextController = TextEditingController();
-  final TextEditingController _topic2TextController = TextEditingController();
-  final TextEditingController _topic3TextController = TextEditingController();
-  final TextEditingController _topic4TextController = TextEditingController();
-  final TextEditingController _topic5TextController = TextEditingController();
-  final TextEditingController _topic6TextController = TextEditingController();
-  final TextEditingController _topic7TextController = TextEditingController();
-  final TextEditingController _topic8TextController = TextEditingController();
   MQTTAppState currentAppState;
   //MQTTAppState currentAppState1;
   MQTTManager manager;
@@ -31,39 +22,17 @@ class _MQTTViewState extends State<MQTTView> {
   @override
   void initState() {
     super.initState();
-    //_configureAndConnect();
-    _hostTextController.text = '192.168.43.229';
-    _topicTextController.text = 'node1/v1';
-    _topic1TextController.text = 'node1/v2';
-    _topic2TextController.text = 'node1/v3';
-    _topic3TextController.text = 'node1/c1';
-    _topic4TextController.text = 'node1/c2';
-    _topic5TextController.text = 'node1/c3';
-    _topic6TextController.text = 'node1/light';
-    _topic7TextController.text = 'node1/off';
-    _topic8TextController.text = 'node1/notif';
   }
 
   @override
   void dispose() {
-    _hostTextController.dispose();
-    _messageTextController.dispose();
-    _topicTextController.dispose();
-    _topic1TextController.dispose();
-    _topic2TextController.dispose();
-    _topic3TextController.dispose();
-    _topic4TextController.dispose();
-    _topic5TextController.dispose();
-    _topic6TextController.dispose();
-    _topic7TextController.dispose();
-    _topic8TextController.dispose();
+    manager.disconnect();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final MQTTAppState appState = Provider.of<MQTTAppState>(context);
-    // Keep a reference to the app state.
     currentAppState = appState;
 
     if (currentAppState.getAppConnectionState ==
@@ -85,59 +54,112 @@ class _MQTTViewState extends State<MQTTView> {
   }
 
   Widget _buildColumn() {
-    return ListView(
-      children: <Widget>[
-        // buildConnectionStateText(
-        //     prepareStateMessageFrom(currentAppState.getAppConnectionState)),
-        // buildEditableColumn(),
-        Chart(
-          data: currentAppState.getData,
-          data1: currentAppState.getData1,
-          data2: currentAppState.getData2,
-          data3: currentAppState.getData3,
-          data4: currentAppState.getData4,
-          data5: currentAppState.getData5,
-          data6: currentAppState.getData6,
-          data7: currentAppState.getData7,
-          data8: currentAppState.getData8,
-          titles: currentAppState.getTitles,
-          titles1: currentAppState.getTitles1,
-          maxData: currentAppState.maxData,
-          maxData1: currentAppState.maxData1,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Image(
-              image: AssetImage('assets/line1.png'),
-              width: 20,
-              height: 20,
+    return ListView(children: <Widget>[
+      Chart(
+        data: currentAppState.getData,
+        data1: currentAppState.getData1,
+        data2: currentAppState.getData2,
+        data3: currentAppState.getData3,
+        data4: currentAppState.getData4,
+        data5: currentAppState.getData5,
+        data6: currentAppState.getData6,
+        data7: currentAppState.getData7,
+        data8: currentAppState.getData8,
+        titles: currentAppState.getTitles,
+        titles1: currentAppState.getTitles1,
+        maxData: currentAppState.maxData,
+        maxData1: currentAppState.maxData1,
+      ),
+      Padding(padding: EdgeInsets.all(10)),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Column(
+            children: [
+              Image(
+                image: AssetImage('assets/line1.png'),
+                width: 20,
+                height: 20,
+              ),
+              Text('Solar Panel'),
+            ],
+          ),
+          Column(
+            children: [
+              Image(
+                image: AssetImage('assets/line2.png'),
+                width: 20,
+                height: 20,
+              ),
+              Text('Battery'),
+            ],
+          ),
+          Column(
+            children: [
+              Image(
+                image: AssetImage('assets/line3.png'),
+                width: 20,
+                height: 20,
+              ),
+              Text('Appliance'),
+            ],
+          ),
+        ],
+      ),
+      Padding(padding: EdgeInsets.all(10)),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(children: [
+            Container(
+              decoration: BoxDecoration(shape: BoxShape.rectangle),
+              child: Image(
+                image: AssetImage(
+                  'assets/nyala.png',
+                ),
+                width: 50,
+                height: 50,
+              ),
             ),
-            //Text('solar panel'),
-            Image(
-              image: AssetImage('assets/line2.png'),
-              width: 20,
-              height: 20,
-            ),
-            //Text('battery'),
-            Image(
-              image: AssetImage('assets/line3.png'),
-              width: 20,
-              height: 20,
-            ),
-            //Text('output'),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Text('  solar panel'),
-            Text('battery  '),
-            Text('output      '),
-          ],
-        ),
-      ],
-    );
+            RaisedButton(
+              color: Colors.lightGreen[700],
+              onPressed: () {
+                _publishMessage('{"confirmed":true, "fPort":3, "data":"MQ=="}');
+              },
+              child: Text(
+                "On",
+                style: TextStyle(color: Colors.white),
+              ),
+            )
+          ]),
+          Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(shape: BoxShape.rectangle),
+                child: Image(
+                  image: AssetImage(
+                    'assets/matii.png',
+                  ),
+                  width: 50,
+                  height: 50,
+                ),
+              ),
+              RaisedButton(
+                color: Colors.lightGreen[700],
+                onPressed: () {
+                  _publishMessage(
+                      '{"confirmed":true, "fPort":3, "data":"MA=="}');
+                },
+                child: Text(
+                  "Off",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+        ],
+      )
+    ]);
   }
 
   Widget buildEditableColumn() {
@@ -288,7 +310,7 @@ class _MQTTViewState extends State<MQTTView> {
         topic3: 'node1/c1',
         topic4: 'node1/c2',
         topic5: 'node1/c3',
-        topic6: 'node1/light',
+        topic6: 'application/2/device/b03d377b1e3ac153/tx',
         topic7: 'node1/off',
         topic8: 'node1/notif',
         identifier: osPrefix,
@@ -301,13 +323,16 @@ class _MQTTViewState extends State<MQTTView> {
     manager.disconnect();
   }
 
+  // void _publishMessage(String text) {
+  //   String osPrefix = 'Flutter_iOS';
+  //   if (Platform.isAndroid) {
+  //     osPrefix = 'Flutter_Android';
+  //   }
+  //   final String message = osPrefix + ' says: ' + text;
+  //   manager.publish(message);
+  //   _messageTextController.clear();
+  // }
   void _publishMessage(String text) {
-    String osPrefix = 'Flutter_iOS';
-    if (Platform.isAndroid) {
-      osPrefix = 'Flutter_Android';
-    }
-    final String message = osPrefix + ' says: ' + text;
-    manager.publish(message);
-    _messageTextController.clear();
+    manager.publish(text);
   }
 }

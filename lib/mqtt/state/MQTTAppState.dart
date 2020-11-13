@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 
-//model for mqtt connection and subscription
 enum MQTTAppConnectionState { connected, disconnected, connecting }
 
 class MQTTAppState with ChangeNotifier {
@@ -303,10 +302,12 @@ class MQTTAppState with ChangeNotifier {
   List<FlSpot> get getData6 => _data6;
   List<FlSpot> get getData7 => _data7;
   List<FlSpot> get getData8 => _data8;
+
   List get getTitles => _time;
   List get getTitles1 => _time1;
   double get maxData => _maxData;
   double get maxData1 => _maxData1;
+
   String get getReceivedText => _receivedText;
   String get getHistoryText => _historyText;
   MQTTAppConnectionState get getAppConnectionState => _appConnectionState;

@@ -80,6 +80,14 @@ flutter:
      - assets/line1.png
      - assets/line2.png
      - assets/line3.png
+     - assets/1.png
+     - assets/2.png
+     - assets/3.png
+     - assets/on.png
+     - assets/off.png
+     - assets/offf.png
+     - assets/nyala.png
+     - assets/matii.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 enum MQTTAppConnectionState3 { connected, disconnected, connecting }
 
 class MQTTAppState3 with ChangeNotifier {
-  // ignore: unused_field
   MQTTAppConnectionState3 _appConnectionState3 =
       MQTTAppConnectionState3.disconnected;
 
@@ -41,6 +40,7 @@ class MQTTAppState3 with ChangeNotifier {
 
   double _index = 1;
   List<FlSpot> _data = [FlSpot(0, 0)];
+
   double _index1 = 1;
   List<FlSpot> _data1 = [FlSpot(0, 0)];
 
@@ -304,6 +304,7 @@ class MQTTAppState3 with ChangeNotifier {
   List<FlSpot> get getData6 => _data6;
   List<FlSpot> get getData7 => _data7;
   List<FlSpot> get getData8 => _data8;
+
   List get getTitles => _time;
   List get getTitles1 => _time1;
   double get maxData => _maxData;

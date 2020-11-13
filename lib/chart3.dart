@@ -16,6 +16,7 @@ class Chart3 extends StatelessWidget {
   final List titles1;
   final double maxData;
   final double maxData1;
+  final LineTouchData lineTouchData;
 
   Chart3({
     this.data,
@@ -31,6 +32,7 @@ class Chart3 extends StatelessWidget {
     this.titles1,
     this.maxData,
     this.maxData1,
+    this.lineTouchData,
   });
 
   final List<Color> gradientColors = [
@@ -42,7 +44,10 @@ class Chart3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(padding: EdgeInsets.only(top: 15)),
+        Padding(
+            padding: EdgeInsets.only(
+          top: 5,
+        )),
         Column(children: <Widget>[
           Text(
             "Voltage",
@@ -52,6 +57,10 @@ class Chart3 extends StatelessWidget {
               fontSize: 15,
             ),
           ),
+          Padding(
+              padding: EdgeInsets.only(
+            top: 5,
+          )),
           AspectRatio(
             aspectRatio: 1.3,
             child: Container(
@@ -64,7 +73,7 @@ class Chart3 extends StatelessWidget {
                   color: Color(0xff000000)),
               child: Padding(
                   padding:
-                      EdgeInsets.only(left: 0, top: 30, bottom: 0, right: 30),
+                      EdgeInsets.only(left: 10, top: 0, bottom: 0, right: 20),
                   // padding: const EdgeInsets.only(
                   //     right: 18, left: 12, top: 24, bottom: 12),
                   child: LineChart(
@@ -90,8 +99,7 @@ class Chart3 extends StatelessWidget {
                   ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
                   color: Color(0xff000000)),
               child: Padding(
-                padding:
-                    EdgeInsets.only(left: 0, top: 30, bottom: 0, right: 30),
+                padding: EdgeInsets.only(left: 0, top: 5, bottom: 0, right: 30),
                 // padding: const EdgeInsets.only(
                 //     right: 18, left: 12, top: 24, bottom: 12),
                 child: LineChart(
@@ -107,7 +115,9 @@ class Chart3 extends StatelessWidget {
 
   LineChartData mainData() {
     return LineChartData(
-      //clipToBorder: true,
+      lineTouchData: LineTouchData(
+          touchTooltipData: LineTouchTooltipData(
+              tooltipBgColor: Colors.blueGrey.withOpacity(0.8))),
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,
@@ -130,7 +140,7 @@ class Chart3 extends StatelessWidget {
           interval: 2,
           rotateAngle: 0,
           showTitles: true,
-          reservedSize: 30,
+          reservedSize: 50,
           textStyle: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10),
           getTitles: (value) {
@@ -169,17 +179,15 @@ class Chart3 extends StatelessWidget {
     );
   }
 
-  // ignore: missing_return
   List<LineChartBarData> linesBarData1() {
-    // ignore: unused_local_variable
     final LineChartBarData lineChartBarData1 = LineChartBarData(
         spots: data,
         isCurved: true,
-        colors: [Colors.redAccent],
+        colors: [Colors.blue],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -194,7 +202,7 @@ class Chart3 extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -204,11 +212,11 @@ class Chart3 extends StatelessWidget {
     final LineChartBarData lineChartBarData3 = LineChartBarData(
         spots: data2,
         isCurved: true,
-        colors: [Colors.green],
+        colors: [Colors.purple],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -243,7 +251,7 @@ class Chart3 extends StatelessWidget {
           interval: 2,
           rotateAngle: 0,
           showTitles: true,
-          reservedSize: 30,
+          reservedSize: 50,
           textStyle: const TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 10),
           getTitles: (value) {
@@ -267,7 +275,7 @@ class Chart3 extends StatelessWidget {
           getTitles: (value) {
             return value.toString().substring(0, 3);
           },
-          reservedSize: 30,
+          reservedSize: 20,
           margin: 10,
         ),
       ),
@@ -277,22 +285,20 @@ class Chart3 extends StatelessWidget {
       minX: 0,
       maxX: maxData1,
       minY: 0,
-      maxY: 2,
+      maxY: 3,
       lineBarsData: linesBarData2(),
     );
   }
 
-  // ignore: missing_return
   List<LineChartBarData> linesBarData2() {
-    // ignore: unused_local_variable
     final LineChartBarData lineChartBarData3 = LineChartBarData(
         spots: data3,
         isCurved: true,
-        colors: [Colors.red],
+        colors: [Colors.blue],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -307,7 +313,7 @@ class Chart3 extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -317,11 +323,11 @@ class Chart3 extends StatelessWidget {
     final LineChartBarData lineChartBarData5 = LineChartBarData(
         spots: data5,
         isCurved: true,
-        colors: [Colors.green],
+        colors: [Colors.purple],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,

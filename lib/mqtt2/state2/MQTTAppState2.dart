@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 enum MQTTAppConnectionState2 { connected, disconnected, connecting }
 
 class MQTTAppState2 with ChangeNotifier {
-  // ignore: unused_field
   MQTTAppConnectionState2 _appConnectionState2 =
       MQTTAppConnectionState2.disconnected;
 
@@ -116,6 +115,7 @@ class MQTTAppState2 with ChangeNotifier {
   }
 
   void setReceivedText2(String text) {
+    print("oke2");
     var dt = DateTime.now();
     var newDt = DateFormat.Hms().format(dt);
     _time2.add(newDt);
@@ -123,11 +123,12 @@ class MQTTAppState2 with ChangeNotifier {
     if (_data2.length <= 10) {
       _data2.add(FlSpot(_index2, _dataList2[_index2.toInt() - 1]));
       _index2++;
+      notifyListeners();
     } else if (_data2.length > 10) {
       //  _maxData = _data.length.toDouble() + 2;
       int fn = _dataList2.length - 10;
       _data2 = [FlSpot(0, _dataList2[fn - 1])];
-      print("oke");
+      print("oke2");
       print(_data2.length);
       int i;
       _time2.removeAt(0);
@@ -136,8 +137,8 @@ class MQTTAppState2 with ChangeNotifier {
         fn++;
       }
       _index2 = 1;
+      notifyListeners();
     }
-    notifyListeners();
   }
 
   void setReceivedText3(String text) {

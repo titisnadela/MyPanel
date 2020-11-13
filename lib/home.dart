@@ -1,15 +1,18 @@
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 import 'package:tes/about.dart';
-import 'package:tes/code.dart';
-import 'package:tes/code3.dart';
 import 'package:tes/login.dart';
+import 'package:tes/mqtt/state/MQTTAppState.dart';
+import 'package:tes/mqtt2/state2/MQTTAppState2.dart';
+import 'package:tes/mqtt3/state3/MQTTAppState3.dart';
 import 'package:tes/topolgi.dart';
-import 'code2.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
+import 'package:tes/widgets/mqttView.dart';
+import 'package:tes/widgets2/mqttView2.dart';
+import 'package:tes/widgets3/mqttView3.dart';
 
 class Home extends StatefulWidget {
   final String name;
@@ -95,21 +98,31 @@ class _HomeState extends State<Home> {
                       case "node 1":
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return Code();
+                          return ChangeNotifierProvider<MQTTAppState>(
+                            create: (_) => MQTTAppState(),
+                            child: MQTTView(),
+                          );
                         }));
 
                         break;
                       case "node 2":
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return Code2();
+                          return ChangeNotifierProvider<MQTTAppState2>(
+                            create: (_) => MQTTAppState2(),
+                            child: MQTTView2(),
+                          );
+                          // return Code2();
                         }));
 
                         break;
                       case "node 3":
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return Code3();
+                          return ChangeNotifierProvider<MQTTAppState3>(
+                            create: (_) => MQTTAppState3(),
+                            child: MQTTView3(),
+                          );
                         }));
                         break;
                       default:

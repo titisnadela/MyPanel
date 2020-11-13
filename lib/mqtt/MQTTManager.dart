@@ -4,26 +4,18 @@ import 'package:tes/mqtt/state/MQTTAppState.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
 class MQTTManager {
-  // Private instance of client
   final MQTTAppState _currentState;
   MqttServerClient _client;
   final String _identifier;
   final String _host;
   final String _topic;
   final String _topic1;
-  // ignore: unused_field
   final String _topic2;
-  // ignore: unused_field
   final String _topic3;
-  // ignore: unused_field
   final String _topic4;
-  // ignore: unused_field
   final String _topic5;
-  // ignore: unused_field
   final String _topic6;
-  // ignore: unused_field
   final String _topic7;
-  // ignore: unused_field
   final String _topic8;
 
   MQTTManager(
@@ -52,7 +44,6 @@ class MQTTManager {
         _topic8 = topic8,
         _currentState = state;
 
-  //membuat instance
   void initializeMQTTClient() {
     _client = MqttServerClient(_host, _identifier);
     _client.port = 1883;
@@ -61,7 +52,6 @@ class MQTTManager {
     _client.secure = false;
     _client.logging(on: true);
 
-    /// Add the successful connection callback
     _client.onConnected = onConnected;
     _client.onSubscribed = onSubscribed;
 
@@ -76,8 +66,6 @@ class MQTTManager {
     _client.connectionMessage = connMess;
   }
 
-  // Connect to the host
-  // ignore: avoid_void_async
   void connect() async {
     assert(_client != null);
     try {
@@ -98,22 +86,22 @@ class MQTTManager {
   void publish(String message) {
     final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
     builder.addString(message);
-    _client.publishMessage(_topic, MqttQos.exactlyOnce, builder.payload);
+    _client.publishMessage(_topic6, MqttQos.exactlyOnce, builder.payload);
   }
 
-  void publish1(String message) {
-    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
-    builder.addString(message);
-    _client.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
-        MqttQos.exactlyOnce, builder.payload);
-  }
+  // void publish1(String message) {
+  //   final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+  //   builder.addString(message);
+  //   _client.publishMessage("application/2/device/b03d377b1e3ac153/tx",
+  //       MqttQos.exactlyOnce, builder.payload);
+  // }
 
-  void publish2(String message) {
-    final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
-    builder.addString(message);
-    _client.publishMessage("application/2/device/f5da3b4ea3fb20f7/tx",
-        MqttQos.exactlyOnce, builder.payload);
-  }
+  // void publish2(String message) {
+  //   final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
+  //   builder.addString(message);
+  //   _client.publishMessage("application/2/device/b03d377b1e3ac153/tx",
+  //       MqttQos.exactlyOnce, builder.payload);
+  // }
 
   /// The subscribed callback
   void onSubscribed(String topic) {
@@ -160,6 +148,10 @@ class MQTTManager {
         _currentState.setReceivedText4(pt);
       } else if (c[0].topic == "node1/c3") {
         _currentState.setReceivedText5(pt);
+      } else if (c[0].topic == "application/2/device/b03d377b1e3ac153/tx") {
+        _currentState.setReceivedText6(pt);
+      } else if (c[0].topic == "node1/off") {
+        _currentState.setReceivedText7(pt);
       } else if (c[0].topic == "node1/notif") {
         _currentState.setReceivedText8(pt);
       }

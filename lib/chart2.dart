@@ -1,5 +1,3 @@
-//import 'dart:html';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,7 +16,7 @@ class Chart2 extends StatelessWidget {
   final List titles1;
   final double maxData;
   final double maxData1;
-  final LineTouchData lineTouchData;
+  // final LineTouchData lineTouchData;
 
   Chart2({
     this.data,
@@ -34,7 +32,7 @@ class Chart2 extends StatelessWidget {
     this.titles1,
     this.maxData,
     this.maxData1,
-    this.lineTouchData,
+    // this.lineTouchData,
   });
 
   final List<Color> gradientColors = [
@@ -69,7 +67,6 @@ class Chart2 extends StatelessWidget {
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.elliptical(0, 0)),
                   gradient: LinearGradient(colors: [
-                    //Color(0x000000000)
                     Color(0xFFF1F8E9),
                     Color(0xFFF1F8E9),
                   ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
@@ -121,7 +118,6 @@ class Chart2 extends StatelessWidget {
       lineTouchData: LineTouchData(
           touchTooltipData: LineTouchTooltipData(
               tooltipBgColor: Colors.blueGrey.withOpacity(0.8))),
-      //clipToBorder: true,
       gridData: FlGridData(
         show: true,
         drawVerticalLine: true,
@@ -183,9 +179,7 @@ class Chart2 extends StatelessWidget {
     );
   }
 
-  // ignore: missing_return
   List<LineChartBarData> linesBarData1() {
-    // ignore: unused_local_variable
     final LineChartBarData lineChartBarData1 = LineChartBarData(
         spots: data,
         isCurved: true,
@@ -193,7 +187,7 @@ class Chart2 extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -208,7 +202,7 @@ class Chart2 extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -222,7 +216,7 @@ class Chart2 extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -301,12 +295,12 @@ class Chart2 extends StatelessWidget {
     // ignore: unused_local_variable
     final LineChartBarData lineChartBarData3 = LineChartBarData(
         spots: data3,
-        isCurved: false,
+        isCurved: true,
         colors: [Colors.blue],
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -321,7 +315,7 @@ class Chart2 extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
@@ -335,7 +329,7 @@ class Chart2 extends StatelessWidget {
         barWidth: 2,
         isStrokeCapRound: true,
         dotData: FlDotData(
-          show: false,
+          show: true,
         ),
         belowBarData: BarAreaData(
             show: true,
