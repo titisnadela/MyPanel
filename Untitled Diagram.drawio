@@ -1,1 +1,115 @@
-<mxfile host="app.diagrams.net" modified="2020-10-22T12:39:17.458Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" version="13.8.1" etag="rRpJDlaD-d6Spzlys4jD" type="github"><diagram id="ruQhYl5xOJ5jmQLx048c">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-11-14T07:14:16.090Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="-8nsDBk8gRSIaLdLYYJb" version="13.9.2" type="github" pages="2">
+  <diagram id="ruQhYl5xOJ5jmQLx048c" name="flowchart arduino">
+    <mxGraphModel dx="868" dy="393" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vi-KP8n1VSVlLx7dB5_Z-1" target="vi-KP8n1VSVlLx7dB5_Z-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-1" value="Mulai" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vi-KP8n1VSVlLx7dB5_Z-2" target="vi-KP8n1VSVlLx7dB5_Z-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-2" value="Instalasi Arduino Uno" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="65" y="120" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vi-KP8n1VSVlLx7dB5_Z-3" target="vi-KP8n1VSVlLx7dB5_Z-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-3" value="Instalasi Library LMIC" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vi-KP8n1VSVlLx7dB5_Z-4" target="vi-KP8n1VSVlLx7dB5_Z-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="vi-KP8n1VSVlLx7dB5_Z-4" target="vi-KP8n1VSVlLx7dB5_Z-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="315" />
+              <mxPoint x="240" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-4" value="Instalasi berhasil?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="65" y="280" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vi-KP8n1VSVlLx7dB5_Z-5" target="vi-KP8n1VSVlLx7dB5_Z-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-5" value="Konfigurasi Library LMIC" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-6" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=process;whiteSpace=wrap;rounded=1;size=0.0625;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="460" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="vi-KP8n1VSVlLx7dB5_Z-7" target="vi-KP8n1VSVlLx7dB5_Z-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-7" value="Pembuatan program papan Arduino" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="465" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-8" value="Selesai" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="85" y="540" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-16" value="Ya" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="350" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vi-KP8n1VSVlLx7dB5_Z-17" value="Tidak" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="320" width="30" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="tlHTD0D3ZiTGUXgkDhen" name="Page-2">
+    <mxGraphModel dx="868" dy="393" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="s5Elo7UdADyp5_NEJmqG-0" />
+        <mxCell id="s5Elo7UdADyp5_NEJmqG-1" parent="s5Elo7UdADyp5_NEJmqG-0" />
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="s5Elo7UdADyp5_NEJmqG-1" source="XmBuzOXLXzk71mJUqmoa-0" target="XmBuzOXLXzk71mJUqmoa-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-0" value="Start" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="s5Elo7UdADyp5_NEJmqG-1">
+          <mxGeometry x="200" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="s5Elo7UdADyp5_NEJmqG-1" source="XmBuzOXLXzk71mJUqmoa-1" target="XmBuzOXLXzk71mJUqmoa-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-1" value="Inisiasi Library, inisiasi variabel, interval time, pin LMIC LoRa SX1726" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;" vertex="1" parent="s5Elo7UdADyp5_NEJmqG-1">
+          <mxGeometry x="180" y="120" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="s5Elo7UdADyp5_NEJmqG-1" source="XmBuzOXLXzk71mJUqmoa-2" target="XmBuzOXLXzk71mJUqmoa-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="s5Elo7UdADyp5_NEJmqG-1" source="XmBuzOXLXzk71mJUqmoa-2" target="XmBuzOXLXzk71mJUqmoa-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-2" value="if power = on" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="s5Elo7UdADyp5_NEJmqG-1">
+          <mxGeometry x="220" y="240" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="s5Elo7UdADyp5_NEJmqG-1" source="XmBuzOXLXzk71mJUqmoa-3" target="XmBuzOXLXzk71mJUqmoa-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-3" value="digitalWrite(pinRelay, LOW); &lt;br&gt;LMIC reset &lt;br&gt;Set Session DevAddr, NwkSKey, AppSKey &lt;br&gt;LMIC.dn2Dr = DR_SF_7;&lt;br&gt;LMIC_setDrTxpow(DR_SF7, 14)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="s5Elo7UdADyp5_NEJmqG-1">
+          <mxGeometry x="140" y="350" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="s5Elo7UdADyp5_NEJmqG-1" source="XmBuzOXLXzk71mJUqmoa-4" target="XmBuzOXLXzk71mJUqmoa-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="500" />
+              <mxPoint x="110" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-4" value="do_send(&amp;amp;sendjob);" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" vertex="1" parent="s5Elo7UdADyp5_NEJmqG-1">
+          <mxGeometry x="190" y="480" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XmBuzOXLXzk71mJUqmoa-6" value="FInish" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="s5Elo7UdADyp5_NEJmqG-1">
+          <mxGeometry x="360" y="260" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
