@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-02T03:29:19.241Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36" etag="YXIWV9UMXuri1kJBmKkY" version="13.10.0" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2020-12-03T02:39:35.728Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36" etag="AjWnTxTFYBD_flGN2jf3" version="13.10.0" type="github" pages="6">
   <diagram id="ruQhYl5xOJ5jmQLx048c" name="flowchart arduino">
     <mxGraphModel dx="1108" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -719,7 +719,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="nRa9aDXn4C2PjN_r6D4E" name="Page-6">
+  <diagram id="nRa9aDXn4C2PjN_r6D4E" name="gateway">
     <mxGraphModel dx="1583" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-0" />
@@ -788,57 +788,57 @@
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-9" value="Instalasi Chirpstack Gateway Bridge" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
           <mxGeometry x="80" y="680" width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="m3yroUJZ4XAJRC3ABOGT-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-10" target="m3yroUJZ4XAJRC3ABOGT-11">
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-10" target="m3yroUJZ4XAJRC3ABOGT-48">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="m3yroUJZ4XAJRC3ABOGT-10" value="Instalasi dan Konfigurasi PostgreSQL dan Redis" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="440" y="120" width="200" height="40" as="geometry" />
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-10" value="Instalasi dan Konfigurasi PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
+          <mxGeometry x="440" y="110" width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="m3yroUJZ4XAJRC3ABOGT-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-11" target="m3yroUJZ4XAJRC3ABOGT-12">
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-11" target="m3yroUJZ4XAJRC3ABOGT-12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-11" value="Instalasi dan Konfigurasi Chirpstack Network Server" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="440" y="200" width="200" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="m3yroUJZ4XAJRC3ABOGT-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-12" target="m3yroUJZ4XAJRC3ABOGT-11">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="660" y="340" />
-              <mxPoint x="660" y="220" />
-            </Array>
-          </mxGeometry>
+          <mxGeometry x="440" y="264" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-12" target="m3yroUJZ4XAJRC3ABOGT-13">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-12" target="m3yroUJZ4XAJRC3ABOGT-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="392" />
+              <mxPoint x="700" y="284" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-12" value="Chirpstack &lt;br&gt;Network&amp;nbsp; Server berhasil dijalankan?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="470" y="280" width="140" height="120" as="geometry" />
+          <mxGeometry x="470" y="332" width="140" height="120" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-13" target="m3yroUJZ4XAJRC3ABOGT-14">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-13" value="Instalasi dan Konfigurasi Chripstack App Server&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="440" y="440" width="200" height="40" as="geometry" />
+          <mxGeometry x="440" y="477" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-14" target="m3yroUJZ4XAJRC3ABOGT-15">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="m3yroUJZ4XAJRC3ABOGT-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-14" target="m3yroUJZ4XAJRC3ABOGT-13">
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-14" target="m3yroUJZ4XAJRC3ABOGT-13">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="660" y="580" />
-              <mxPoint x="660" y="460" />
+              <mxPoint x="690" y="605" />
+              <mxPoint x="690" y="497" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-14" value="Chirpstack &lt;br&gt;App Server berhasil dijalankan?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="470" y="520" width="140" height="120" as="geometry" />
+          <mxGeometry x="470" y="545" width="140" height="120" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-15" target="m3yroUJZ4XAJRC3ABOGT-16">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-15" value="Instalasi MySQL dan PHPMyAdmin" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="440" y="680" width="200" height="40" as="geometry" />
+          <mxGeometry x="440" y="696" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-16" value="Selesai" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
           <mxGeometry x="480" y="760" width="120" height="40" as="geometry" />
@@ -864,17 +864,23 @@
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-43" value="Tidak" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
           <mxGeometry x="240" y="575" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="m3yroUJZ4XAJRC3ABOGT-44" value="Ya" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="540" y="410" width="30" height="20" as="geometry" />
-        </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-45" value="Tidak" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="610" y="320" width="40" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="m3yroUJZ4XAJRC3ABOGT-46" value="Ya" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="540" y="650" width="30" height="20" as="geometry" />
+          <mxGeometry x="620" y="370" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="m3yroUJZ4XAJRC3ABOGT-47" value="Tidak" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
-          <mxGeometry x="610" y="560" width="40" height="20" as="geometry" />
+          <mxGeometry x="620" y="585" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="m3yroUJZ4XAJRC3ABOGT-1" source="m3yroUJZ4XAJRC3ABOGT-48" target="m3yroUJZ4XAJRC3ABOGT-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-48" value="Instalasi Redis" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
+          <mxGeometry x="440" y="190" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-54" value="Ya" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
+          <mxGeometry x="550" y="665" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="m3yroUJZ4XAJRC3ABOGT-55" value="Ya" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="m3yroUJZ4XAJRC3ABOGT-1">
+          <mxGeometry x="540" y="452" width="30" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
